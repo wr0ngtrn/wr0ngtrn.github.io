@@ -1,28 +1,44 @@
 body {
   font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f2f2f2;
   text-align: center;
+  margin: 0;
+  background-color: #f2f2f2;
 }
 
-.game-section button, .menu button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #ff4d4d;
+.top-buttons {
+  padding: 20px;
+}
+
+.top-buttons button {
+  margin: 5px;
+  padding: 10px;
+  background-color: red;
   color: white;
   border: none;
   border-radius: 5px;
 }
 
-.menu {
+#main-content {
+  padding: 50px;
+  min-height: 300px;
+  background-color: white;
+}
+
+.bottom-nav {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: white;
+  background-color: white;
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  border-top: 1px solid #ccc;
+}
+
+.bottom-nav button {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }

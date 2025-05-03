@@ -2,23 +2,27 @@
 <html>
 <head>
   <title>Lucky Win</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div class="game-section">
-    <button onclick="show('Win Go')">Win Go</button>
-    <button onclick="show('K3')">K3</button>
-    <button onclick="show('5D')">5D</button>
+  <!-- Top Buttons -->
+  <div class="top-buttons">
+    <button onclick="loadGame('winGo')">Win Go</button>
+    <button onclick="loadGame('k3')">K3</button>
+    <button onclick="loadGame('5d')">5D</button>
   </div>
 
-  <div id="content">Welcome to Lucky Win</div>
+  <!-- Main Content Area -->
+  <div id="main-content">
+    Welcome to Lucky Win
+  </div>
 
-  <div class="menu">
-    <button onclick="show('Home')">Home</button>
-    <button onclick="show('Activity')">Activity</button>
-    <button onclick="show('Wallet')">Wallet</button>
-    <button onclick="show('Account')">Account</button>
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('activity')">Activity</button>
+    <button onclick="showPage('wallet')">Wallet</button>
+    <button onclick="showPage('account')">Account</button>
   </div>
 
   <script src="script.js"></script>
