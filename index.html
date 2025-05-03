@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Lucky Win</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top Buttons -->
-  <div class="top-buttons">
-    <button onclick="loadGame('winGo')">Win Go</button>
-    <button onclick="loadGame('k3')">K3</button>
-    <button onclick="loadGame('5d')">5D</button>
+
+  <!-- ✅ Header -->
+  <header class="top-bar">
+    <img src="logo.png" alt="Lucky Win Logo" class="logo">
+    <span class="title">OK.Win</span>
+  </header>
+
+  <!-- 🔔 Notification -->
+  <div class="notification">
+    <marquee>⚠️ Safeguard against scams!! Deposit only via luckyWin</marquee>
   </div>
 
-  <!-- Main Content Area -->
-  <div id="main-content">
-    Welcome to Lucky Win
+  <!-- ✅ Game Cards -->
+  <div class="game-section">
+    <div class="game-card red">
+      <h3>Win Go</h3>
+      <p>Guess Number<br>Green/Red/Violet</p>
+    </div>
+    <div class="game-card orange">
+      <h3>K3</h3>
+      <p>Guess Number<br>Big/Small/Odd/Even</p>
+    </div>
+    <div class="game-card pink">
+      <h3>5D</h3>
+      <p>Guess Number<br>Big/Small/Odd/Even</p>
+    </div>
   </div>
 
-  <!-- Bottom Navigation -->
-  <div class="bottom-nav">
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('activity')">Activity</button>
-    <button onclick="showPage('wallet')">Wallet</button>
-    <button onclick="showPage('account')">Account</button>
-  </div>
+  <!-- ✅ Bottom Nav -->
+  <nav class="bottom-nav">
+    <button>Home</button>
+    <button>Activity</button>
+    <button>Promotion</button>
+    <button>Wallet</button>
+    <button>Account</button>
+  </nav>
 
-  <script src="script.js"></script>
 </body>
 </html>
