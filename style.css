@@ -1,16 +1,28 @@
 body {
-  background-color: #f0f8ff;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
   text-align: center;
-  padding: 50px;
 }
 
-h1 {
-  color: #2c3e50;
-  font-size: 3em;
+.game-section button, .menu button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-p {
-  color: #34495e;
-  font-size: 1.2em;
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }

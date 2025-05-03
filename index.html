@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My First Website</title>
-<link rel="stylesheet"
-href="style.css">
+  <title>Lucky Win</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
-  <p>This is a free website made by me!</p>
+
+  <div class="game-section">
+    <button onclick="show('Win Go')">Win Go</button>
+    <button onclick="show('K3')">K3</button>
+    <button onclick="show('5D')">5D</button>
+  </div>
+
+  <div id="content">Welcome to Lucky Win</div>
+
+  <div class="menu">
+    <button onclick="show('Home')">Home</button>
+    <button onclick="show('Activity')">Activity</button>
+    <button onclick="show('Wallet')">Wallet</button>
+    <button onclick="show('Account')">Account</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
