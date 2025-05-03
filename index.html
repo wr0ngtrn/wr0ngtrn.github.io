@@ -1,47 +1,43 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lucky Win</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WinGo Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <h1>Welcome to WinGo</h1>
 
-  <!-- ✅ Header -->
-  <header class="top-bar">
-    <img src="logo.png" alt="Lucky Win Logo" class="logo">
-    <span class="title">OK.Win</span>
-  </header>
+    <p><strong>Balance:</strong> <span id="balance">0</span> coins</p>
 
-  <!-- 🔔 Notification -->
-  <div class="notification">
-    <marquee>⚠️ Safeguard against scams!! Deposit only via luckyWin</marquee>
+    <div class="buttons">
+      <button onclick="guess('Red')">Red</button>
+      <button onclick="guess('Green')">Green</button>
+      <button onclick="guess('Violet')">Violet</button>
+    </div>
+
+    <p>
+      Add Coins:
+      <input type="number" id="depositAmount" min="1" value="10">
+      <button onclick="depositCoins()">Deposit</button>
+    </p>
+
+    <p>
+      Withdraw Coins:
+      <input type="number" id="withdrawAmount" min="1" value="10">
+      <button onclick="withdrawCoins()">Withdraw</button>
+    </p>
+
+    <p id="result"></p>
+
+    <hr>
+    <h3>Result History</h3>
+    <ul id="historyList"></ul>
   </div>
 
-  <!-- ✅ Game Cards -->
-  <div class="game-section">
-    <div class="game-card red">
-      <h3>Win Go</h3>
-      <p>Guess Number<br>Green/Red/Violet</p>
-    </div>
-    <div class="game-card orange">
-      <h3>K3</h3>
-      <p>Guess Number<br>Big/Small/Odd/Even</p>
-    </div>
-    <div class="game-card pink">
-      <h3>5D</h3>
-      <p>Guess Number<br>Big/Small/Odd/Even</p>
-    </div>
-  </div>
-
-  <!-- ✅ Bottom Nav -->
-  <nav class="bottom-nav">
-    <button>Home</button>
-    <button>Activity</button>
-    <button>Promotion</button>
-    <button>Wallet</button>
-    <button>Account</button>
-  </nav>
-
+  <script src="script.js"></script>
 </body>
 </html>
