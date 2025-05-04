@@ -22,3 +22,18 @@ setInterval(() => {
     timer.innerText = countdown;
   }
 }, 1000);
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("openWingo").addEventListener("click", function () {
+    document.getElementById("wingoGame").classList.remove("hidden");
+  });
+
+  // Countdown logic
+  let countdown = 30;
+  const timer = document.getElementById("timer");
+  setInterval(() => {
+    if (countdown > 0) {
+      countdown--;
+      timer.innerText = countdown;
+    }
+  }, 1000);
+});
