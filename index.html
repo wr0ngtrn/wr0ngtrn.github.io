@@ -1,42 +1,54 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WinGo Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OK.Win Style UI</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to WinGo</h1>
-
-    <p><strong>Balance:</strong> <span id="balance">0</span> coins</p>
-
-    <div class="buttons">
-      <button onclick="guess('Red')">Red</button>
-      <button onclick="guess('Green')">Green</button>
-      <button onclick="guess('Violet')">Violet</button>
+  <div class="app-container">
+    <div class="header">
+      <img src="https://via.placeholder.com/400x200" alt="Banner Image" class="banner-image">
+      <p class="alert">All players registered on this platform must bind their bank data.</p>
     </div>
 
-    <p>
-      Add Coins:
-      <input type="number" id="depositAmount" min="1" value="10">
-      <button onclick="depositCoins()">Deposit</button>
-    </p>
+    <div class="menu">
+      <div class="menu-item" onclick="showSection('Lottery')">Lottery</div>
+      <div class="menu-item" onclick="showSection('Mini Games')">Mini Games</div>
+      <div class="menu-item" onclick="showSection('Popular')">Popular</div>
+      <div class="menu-item" onclick="showSection('Slots')">Slots</div>
+      <div class="menu-item" onclick="showSection('Fishing')">Fishing</div>
+    </div>
 
-    <p>
-      Withdraw Coins:
-      <input type="number" id="withdrawAmount" min="1" value="10">
-      <button onclick="withdrawCoins()">Withdraw</button>
-    </p>
-
-    <p id="result"></p>
-
-    <hr>
-    <h3>Result History</h3>
-    <ul id="historyList"></ul>
+    <div class="game-list" id="gameList">
+      <div class="game-card" onclick="playGame('Win Go')">
+        <h3>Win Go</h3>
+        <p>Guess Number<br><span>Green/Red/Violet to win</span></p>
+      </div>
+      <div class="game-card" onclick="playGame('K3')">
+        <h3>K3</h3>
+        <p>Guess Number<br><span>Big/Small/Odd/Even</span></p>
+      </div>
+      <div class="game-card" onclick="playGame('5D')">
+        <h3>5D</h3>
+        <p>Guess Number<br><span>Big/Small/Odd/Even</span></p>
+      </div>
+      <div class="game-card" onclick="playGame('Add to Desktop')">
+        <h3>Add to Desktop</h3>
+        <p>Guess Number<br><span>Green/Red/Violet to win</span></p>
+      </div>
+    </div>
   </div>
+
+  <nav class="bottom-nav">
+    <div class="nav-item" onclick="navigate('Home')">Home</div>
+    <div class="nav-item" onclick="navigate('Activity')">Activity</div>
+    <div class="nav-item center" onclick="navigate('Promotion')">Promotion</div>
+    <div class="nav-item" onclick="navigate('Wallet')">Wallet</div>
+    <div class="nav-item" onclick="navigate('Account')">Account</div>
+  </nav>
 
   <script src="script.js"></script>
 </body>
