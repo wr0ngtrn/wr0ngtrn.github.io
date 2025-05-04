@@ -1,27 +1,45 @@
-body {
+* {
   margin: 0;
-  font-family: sans-serif;
-  background: #f9fbff;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.top-bar {
-  background: #0f0f0f;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #333;
+  max-width: 480px;
+  margin: auto;
+}
+
+.top-img {
+  width: 100%;
+  border-bottom: 2px solid #eee;
+}
+
+.alert {
+  background: #ffe5e5;
+  color: #cc0000;
   padding: 10px;
-  display: flex;
-  align-items: center;
-  color: white;
-}
-
-.logo {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.notification {
-  background: #fff0f0;
-  padding: 5px 10px;
   font-size: 13px;
-  color: red;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f6f6f6;
+}
+
+.menu-item {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  background: white;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .game-section {
@@ -29,43 +47,52 @@ body {
 }
 
 .game-card {
-  background: #fff;
-  border-radius: 10px;
+  background: linear-gradient(to right, #ff6b6b, #ff9a9e);
+  color: white;
+  border-radius: 15px;
   padding: 15px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px #ccc;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
 }
 
-.red { background: linear-gradient(45deg, #ff4d4d, #ff9999); }
-.orange { background: linear-gradient(45deg, #ff944d, #ffd699); }
-.pink { background: linear-gradient(45deg, #ff66b2, #ffccf2); }
+.game-card:hover {
+  transform: scale(1.02);
+}
+
+.game-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.game-card span {
+  font-size: 13px;
+  opacity: 0.95;
+}
 
 .bottom-nav {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 480px;
+  background: #fff;
   display: flex;
   justify-content: space-around;
-  background: white;
-  box-shadow: 0 -2px 5px #ccc;
   padding: 10px 0;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
 }
 
-.bottom-nav button {
-  border: none;
-  background: none;
-  font-size: 14px;
-}
-#spin-section {
-  padding: 20px;
+.nav-item {
+  text-align: center;
+  font-size: 13px;
+  color: #444;
 }
 
-#spin-section button {
-  background-color: green;
+.center {
+  background: #ff4c4c;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  margin-top: 10px;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-weight: bold;
 }
