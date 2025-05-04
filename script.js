@@ -9,3 +9,16 @@ function playGame(gameName) {
 function navigate(pageName) {
   alert(Navigating to ${pageName} page.);
 }
+document.getElementById("openWingo").addEventListener("click", function () {
+  document.getElementById("wingoGame").classList.remove("hidden");
+});
+
+// Simple countdown
+let countdown = 30;
+const timer = document.getElementById("timer");
+setInterval(() => {
+  if (countdown > 0) {
+    countdown--;
+    timer.innerText = countdown;
+  }
+}, 1000);

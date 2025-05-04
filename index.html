@@ -315,3 +315,75 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wingo Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="openWingo">Play Wingo</button>
+
+  <div id="wingoGame" class="hidden">
+    <div class="wallet">
+      <div>
+        <h2>₹0.00</h2>
+        <p>Wallet balance</p>
+      </div>
+      <div class="btns">
+        <button class="withdraw">Withdraw</button>
+        <button class="deposit">Deposit</button>
+      </div>
+    </div>
+
+    <div class="notice">
+      <p>If you experience slow performance or login issues, please ensure a stable internet connection</p>
+    </div>
+
+    <div class="time-tabs">
+      <button class="active">Win Go 30s</button>
+      <button>Win Go 1Min</button>
+      <button>Win Go 3Min</button>
+      <button>Win Go 5Min</button>
+    </div>
+
+    <div class="results">
+      <span>Win Go 30s</span>
+      <div class="balls">
+        <span>0</span><span>5</span><span>9</span><span>0</span><span>8</span>
+      </div>
+      <div class="countdown">Time remaining: <span id="timer">30</span>s</div>
+    </div>
+
+    <div class="color-btns">
+      <button class="green">Green</button>
+      <button class="violet">Violet</button>
+      <button class="red">Red</button>
+    </div>
+
+    <div class="numbers">
+      <button>0</button><button>1</button><button>2</button><button>3</button><button>4</button>
+      <button>5</button><button>6</button><button>7</button><button>8</button><button>9</button>
+    </div>
+
+    <div class="amount-multipliers">
+      <button>Random</button>
+      <button>X1</button>
+      <button>X5</button>
+      <button>X10</button>
+      <button>X20</button>
+      <button>X50</button>
+      <button>X100</button>
+    </div>
+
+    <div class="size-btns">
+      <button class="big">Big</button>
+      <button class="small">Small</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

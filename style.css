@@ -96,3 +96,111 @@ body {
   border-radius: 30px;
   font-weight: bold;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+#wingoGame.hidden {
+  display: none;
+}
+
+.wallet {
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  padding: 20px;
+  color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btns button {
+  margin: 0 5px;
+  padding: 10px 20px;
+}
+
+.withdraw {
+  background: #ff4e50;
+  color: white;
+}
+
+.deposit {
+  background: #28a745;
+  color: white;
+}
+
+.notice {
+  margin: 10px 0;
+  padding: 10px;
+  background: #ffe9e9;
+  color: #ff0000;
+  border-radius: 10px;
+}
+
+.time-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.time-tabs button {
+  background: #eee;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.time-tabs .active {
+  background: #ff4e50;
+  color: white;
+}
+
+.results {
+  background: #ff6767;
+  color: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.balls span {
+  margin: 0 3px;
+  background: white;
+  color: #ff4e50;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.color-btns button {
+  width: 30%;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.green { background: #28a745; color: white; }
+.violet { background: #9b59b6; color: white; }
+.red { background: #e74c3c; color: white; }
+
+.numbers, .amount-multipliers, .size-btns {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.amount-multipliers button {
+  background: #ddd;
+}
+
+.size-btns .big { background: orange; }
+.size-btns .small { background: cornflowerblue; }
