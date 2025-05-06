@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lucky Win Style Mobile Interface</title>
+  <title>Lucky Win Interface</title>
   <style>
     * {
       box-sizing: border-box;
@@ -41,28 +41,7 @@
       border-radius: 20px;
       padding: 5px 10px;
       margin-left: auto;
-    }
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      gap: 10px;
-    }
-    .sidebar button {
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 16px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       cursor: pointer;
-    }
-    .sidebar img {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
     }
     .game-card {
       background: linear-gradient(to right, #ff6a6a, #ff9c9c);
@@ -71,6 +50,7 @@
       margin: 10px;
       border-radius: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
     }
     .game-card h2 {
       margin: 0;
@@ -78,6 +58,16 @@
     }
     .game-card p {
       margin: 5px 0 0;
+    }
+    .promo-button {
+      background: red;
+      color: white;
+      padding: 10px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 10px;
+      font-weight: bold;
+      cursor: pointer;
     }
     .bottom-nav {
       position: fixed;
@@ -96,98 +86,17 @@
       font-size: 12px;
       text-align: center;
       color: #666;
+      cursor: pointer;
     }
     .bottom-nav .active {
       color: #ff6a6a;
     }
-    .promo-button {
-      background: red;
-      color: white;
-      padding: 10px;
-      border-radius: 20px;
-      text-align: center;
-      margin: 10px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
 
-  <header>
-    <img src="https://i.imgur.com/b6HgM6Z.png" alt="Banner" />
-    <div></div>
-  </header>
-
-  <div class="alert-bar">
-    <span>All players must bind their bank data.</span>
-    <button onclick="showDetails()">Detail</button>
-  </div>
-
-    <div class="game-card" onclick="playGame('Win Go')">
-    <h2>Win Go</h2>
-    <p>Guess Number: Green/Red/Violet to win</p>
-  </div>
-
-  <div class="game-card" onclick="playGame('K3')">
-    <h2>K3</h2>
-    <p>Guess Number: Big/Small/Odd/Even</p>
-  </div>
-
-  <div class="game-card" onclick="playGame('5D')">
-    <h2>5D</h2>
-    <p>Guess Number: Big/Small/Odd/Even</p>
-  </div>
-
-  <div class="promo-button" onclick="addToDesktop()">
-    Add to Desktop
-  </div>
-
-  <div class="bottom-nav">
-    <button class="active" onclick="navigate('Home')">Home</button>
-    <button onclick="navigate('Activity')">Activity</button>
-    <button onclick="navigate('Promotion')">Promotion</button>
-    <button onclick="navigate('Wallet')">Wallet</button>
-    <button onclick="navigate('Account')">Account</button>
-  </div>
-
-  <script>
-    function showDetails() {
-      alert("Bind your real bank data to continue.");
-    }
-
-    function playGame(name) {
-      alert("Launching game: " + name);
-    }
-
-    function addToDesktop() {
-      alert("Feature coming soon!");
-    }
-
-    function navigate(section) {
-      alert("Navigating to " + section);
-    }
-  </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leaderboard</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    body {
-      margin: 0;
-      background: #f4f6fc;
-      padding: 20px 10px 80px;
-    }
+    /* Leaderboard Styles */
     .leaderboard {
-      text-align: center;
+      display: none;
+      padding: 20px 10px 80px;
+      background: #f4f6fc;
     }
     .top-three {
       display: flex;
@@ -206,18 +115,9 @@
       position: relative;
       box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
-    .rank-box.no1 {
-      background: linear-gradient(to top, #ff4d4d, #ff9999);
-      height: 180px;
-    }
-    .rank-box.no2 {
-      background: linear-gradient(to top, #a0aaff, #d0d8ff);
-      height: 150px;
-    }
-    .rank-box.no3 {
-      background: linear-gradient(to top, #fca13a, #fdd79a);
-      height: 140px;
-    }
+    .rank-box.no1 { background: linear-gradient(to top, #ff4d4d, #ff9999); height: 180px; }
+    .rank-box.no2 { background: linear-gradient(to top, #a0aaff, #d0d8ff); height: 150px; }
+    .rank-box.no3 { background: linear-gradient(to top, #fca13a, #fdd79a); height: 140px; }
     .rank-box img {
       width: 60px;
       height: 60px;
@@ -225,23 +125,10 @@
       border: 3px solid white;
       margin-bottom: 10px;
     }
-    .crown {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35px;
-    }
-    .rank {
-      font-weight: bold;
+    .rank, .name, .amount {
+      text-align: center;
       font-size: 14px;
-    }
-    .name {
-      margin: 5px 0;
-    }
-    .amount {
       font-weight: bold;
-      font-size: 14px;
     }
     .list-item {
       display: flex;
@@ -258,13 +145,8 @@
       border-radius: 50%;
       margin-right: 10px;
     }
-    .list-rank {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    .list-name {
-      flex: 1;
-    }
+    .list-rank { font-weight: bold; margin-right: 10px; }
+    .list-name { flex: 1; }
     .list-amount {
       color: #fff;
       background: linear-gradient(to right, #ff6a6a, #ff9c9c);
@@ -276,39 +158,101 @@
 </head>
 <body>
 
-<div class="leaderboard">
+<header>
+  <img src="https://i.imgur.com/b6HgM6Z.png" alt="Lucky Win Banner" />
+  <div></div>
+</header>
 
+<div class="alert-bar">
+  <span>All players must bind their bank data.</span>
+  <button onclick="showDetails()">Detail</button>
+</div>
+
+<!-- Game Section -->
+<section id="game-section">
+  <div class="game-card" onclick="playGame('Win Go')">
+    <h2>Win Go</h2>
+    <p>Guess Number: Green/Red/Violet to win</p>
+  </div>
+
+  <div class="game-card" onclick="playGame('K3')">
+    <h2>K3</h2>
+    <p>Guess Number: Big/Small/Odd/Even</p>
+  </div>
+
+  <div class="game-card" onclick="playGame('5D')">
+    <h2>5D</h2>
+    <p>Guess Number: Big/Small/Odd/Even</p>
+  </div>
+
+  <div class="promo-button" onclick="addToDesktop()">
+    Add to Desktop
+  </div>
+</section>
+
+<!-- Leaderboard Section -->
+<section id="leaderboard-section" class="leaderboard">
   <div class="top-three">
     <div class="rank-box no2">
-      <img src="https://i.imgur.com/jNNT4LE.png" />
-     <div class="rank">NO2</div>
+      <img src="https://i.imgur.com/jNNT4LE.png" alt="User 2"/>
+      <div class="rank">NO2</div>
       <div class="name">Mem***F09</div>
       <div class="amount">₹245,759,500.00</div>
     </div>
     <div class="rank-box no1">
-      <img src="https://i.imgur.com/jNNT4LE.png" />
-       <div class="rank">NO1</div>
+      <img src="https://i.imgur.com/jNNT4LE.png" alt="User 1"/>
+      <div class="rank">NO1</div>
       <div class="name">AZG***1M</div>
       <div class="amount">₹352,729,440.00</div>
     </div>
     <div class="rank-box no3">
-      <img src="https://i.imgur.com/lKJiT77.png" />
-          <div class="rank">NO3</div>
+      <img src="https://i.imgur.com/lKJiT77.png" alt="User 3"/>
+      <div class="rank">NO3</div>
       <div class="name"></div>
       <div class="amount">₹104,817,370.00</div>
     </div>
   </div>
 
   <!-- List Items -->
-  <div class="list-item"><div class="list-rank">4</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***FGU</div><div class="list-amount">₹46,195,338.00</div></div>
-  <div class="list-item"><div class="list-rank">5</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***ZEN</div><div class="list-amount">₹39,392,080.00</div></div>
-  <div class="list-item"><div class="list-rank">6</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***SUN</div><div class="list-amount">₹26,304,046.72</div></div>
-  <div class="list-item"><div class="list-rank">7</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***EET</div><div class="list-amount">₹2,395,316.00</div></div>
-  <div class="list-item"><div class="list-rank">8</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***JNP</div><div class="list-amount">₹1,729,575.00</div></div>
-  <div class="list-item"><div class="list-rank">9</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***BTX</div><div class="list-amount">₹1,619,038.00</div></div>
-  <div class="list-item"><div class="list-rank">10</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Nak***aXD</div><div class="list-amount">₹1,176,000.00</div></div>
+  <div class="list-item"><div class="list-rank">4</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 4"/><div class="list-name">Mem***FGU</div><div class="list-amount">₹46,195,338.00</div></div>
+  <div class="list-item"><div class="list-rank">5</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 5"/><div class="list-name">Mem***ZEN</div><div class="list-amount">₹39,392,080.00</div></div>
+  <div class="list-item"><div class="list-rank">6</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 6"/><div class="list-name">Mem***SUN</div><div class="list-amount">₹26,304,046.72</div></div>
+  <div class="list-item"><div class="list-rank">7</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 7"/><div class="list-name">Mem***EET</div><div class="list-amount">₹2,395,316.00</div></div>
+  <div class="list-item"><div class="list-rank">8</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 8"/><div class="list-name">Mem***JNP</div><div class="list-amount">₹1,729,575.00</div></div>
+  <div class="list-item"><div class="list-rank">9</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 9"/><div class="list-name">Mem***BTX</div><div class="list-amount">₹1,619,038.00</div></div>
+  <div class="list-item"><div class="list-rank">10</div><img src="https://i.imgur.com/jNNT4LE.png" alt="User 10"/><div class="list-name">Nak***aXD</div><div class="list-amount">₹1,176,000.00</div></div>
+</section>
 
+<div class="bottom-nav">
+  <button class="active" onclick="showSection('game')">Home</button>
+  <button onclick="showSection('leaderboard')">Leaderboard</button>
 </div>
+
+<script>
+  function showDetails() {
+    alert("Bind your real bank data to continue.");
+  }
+
+  function playGame(name) {
+    alert("Launching game: " + name);
+  }
+
+  function addToDesktop() {
+    alert("Feature coming soon!");
+  }
+
+  function showSection(section) {
+    document.getElementById("game-section").style.display = section === "game" ? "block" : "none";
+    document.getElementById("leaderboard-section").style.display = section === "leaderboard" ? "block" : "none";
+    const buttons = document.querySelectorAll(".bottom-nav button");
+    buttons.forEach(btn => btn.classList.remove("active"));
+    if (section === "game") buttons[0].classList.add("active");
+    else buttons[1].classList.add("active");
+  }
+
+  // Show game section by default
+  showSection('game');
+</script>
 
 </body>
 </html>
