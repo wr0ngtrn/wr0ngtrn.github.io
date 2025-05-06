@@ -312,3 +312,147 @@
 
     function navigate(section) {
       showLoader
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      margin: 0;
+      background: #f4f6fc;
+      padding: 20px 10px 80px;
+    }
+    .leaderboard {
+      text-align: center;
+    }
+    .top-three {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .rank-box {
+      background: linear-gradient(to top, #ff6a6a, #ffa07a);
+      padding: 10px;
+      border-radius: 20px;
+      color: white;
+      flex: 1;
+      max-width: 120px;
+      position: relative;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .rank-box.no1 {
+      background: linear-gradient(to top, #ff4d4d, #ff9999);
+      height: 180px;
+    }
+    .rank-box.no2 {
+      background: linear-gradient(to top, #a0aaff, #d0d8ff);
+      height: 150px;
+    }
+    .rank-box.no3 {
+      background: linear-gradient(to top, #fca13a, #fdd79a);
+      height: 140px;
+    }
+    .rank-box img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-bottom: 10px;
+    }
+    .crown {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35px;
+    }
+    .rank {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .name {
+      margin: 5px 0;
+    }
+    .amount {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .list-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      margin: 8px 0;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .list-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .list-rank {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .list-name {
+      flex: 1;
+    }
+    .list-amount {
+      color: #fff;
+      background: linear-gradient(to right, #ff6a6a, #ff9c9c);
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="leaderboard">
+
+  <div class="top-three">
+    <div class="rank-box no2">
+      <img src="https://i.imgur.com/jNNT4LE.png" />
+      
+      <div class="rank">NO2</div>
+      <div class="name">Mem***F09</div>
+      <div class="amount">₹245,759,500.00</div>
+    </div>
+    <div class="rank-box no1">
+      <img src="https://i.imgur.com/jNNT4LE.png" />
+            <div class="rank">NO1</div>
+      <div class="name">AZG***1M</div>
+      <div class="amount">₹352,729,440.00</div>
+    </div>
+    <div class="rank-box no3">
+      <img src="https://i.imgur.com/lKJiT77.png" />
+      
+      <div class="rank">NO3</div>
+      <div class="name"></div>
+      <div class="amount">₹104,817,370.00</div>
+    </div>
+  </div>
+
+  <!-- List Items -->
+  <div class="list-item"><div class="list-rank">4</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***FGU</div><div class="list-amount">₹46,195,338.00</div></div>
+  <div class="list-item"><div class="list-rank">5</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***ZEN</div><div class="list-amount">₹39,392,080.00</div></div>
+  <div class="list-item"><div class="list-rank">6</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***SUN</div><div class="list-amount">₹26,304,046.72</div></div>
+  <div class="list-item"><div class="list-rank">7</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***EET</div><div class="list-amount">₹2,395,316.00</div></div>
+  <div class="list-item"><div class="list-rank">8</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***JNP</div><div class="list-amount">₹1,729,575.00</div></div>
+  <div class="list-item"><div class="list-rank">9</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***BTX</div><div class="list-amount">₹1,619,038.00</div></div>
+  <div class="list-item"><div class="list-rank">10</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Nak***aXD</div><div class="list-amount">₹1,176,000.00</div></div>
+
+</div>
+
+</body>
+</html>
