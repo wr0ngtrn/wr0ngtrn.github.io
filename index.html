@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Lucky.Win Style Mobile Interface</title>
+  <title>OK.Win - Premium Gaming Platform</title>
   <style>
     :root {
-      --primary: #ff4757;
-      --primary-light: #ff6b81;
-      --secondary: #5352ed;
-      --dark: #2f3542;
-      --light: #f1f2f6;
-      --success: #2ed573;
-      --warning: #ffa502;
-      --danger: #ff4757;
-      --text: #333;
-      --text-light: #666;
-      --white: #fff;
-      --shadow: 0 4px 6px rgba(0,0,0,0.1);
-      --transition: all 0.3s ease;
+      --primary: #e74c3c;
+      --primary-light: #ff6b6b;
+      --secondary: #3498db;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --success: #2ecc71;
+      --warning: #f39c12;
+      --danger: #e74c3c;
+      --text: #2c3e50;
+      --text-light: #7f8c8d;
+      --white: #ffffff;
+      --shadow: 0 4px 8px rgba(0,0,0,0.1);
+      --transition: all 0.2s ease;
     }
     
     * {
@@ -30,11 +30,11 @@
     
     body {
       margin: 0;
-      padding-bottom: 70px;
-      background: #f8f9fa;
+      padding-bottom: 80px;
+      background: #f5f6fa;
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.5;
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
     }
     
     header {
@@ -46,71 +46,79 @@
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
     
-    header img {
+    .logo {
       width: 100px;
       height: auto;
-      border-radius: 12px;
-      object-fit: contain;
+      border-radius: 10px;
+    }
+    
+    .notification-icon {
+      font-size: 1.4rem;
+      color: var(--text);
     }
     
     .alert-bar {
       background: var(--warning);
       color: var(--white);
       padding: 12px 15px;
-      font-size: 14px;
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
-      margin: 5px 0;
+      margin: 8px 0;
     }
     
-    .alert-bar button {
+    .alert-btn {
       background: rgba(255,255,255,0.2);
       color: white;
       border: none;
       border-radius: 20px;
       padding: 6px 12px;
       margin-left: auto;
-      font-size: 13px;
+      font-size: 0.8rem;
       font-weight: 500;
       transition: var(--transition);
     }
     
-    .alert-bar button:active {
-      transform: scale(0.95);
+    .alert-btn:active {
+      transform: scale(0.96);
     }
     
     .sidebar {
-      display: flex;
-      flex-direction: column;
       padding: 15px;
+    }
+    
+    .sidebar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
     
-    .sidebar button {
+    .sidebar-btn {
       display: flex;
+      flex-direction: column;
       align-items: center;
       background: var(--white);
       border: none;
       border-radius: 12px;
-      padding: 12px 15px;
-      font-size: 16px;
+      padding: 15px 10px;
+      font-size: 0.9rem;
       font-weight: 500;
       box-shadow: var(--shadow);
-      cursor: pointer;
       transition: var(--transition);
+      text-align: center;
     }
     
-    .sidebar button:active {
+    .sidebar-btn:active {
       transform: scale(0.98);
     }
     
-    .sidebar img {
+    .sidebar-icon {
       width: 36px;
       height: 36px;
-      margin-right: 12px;
+      margin-bottom: 8px;
       object-fit: contain;
     }
     
@@ -118,12 +126,19 @@
       padding: 0 15px;
     }
     
+    .section-title {
+      font-size: 1.2rem;
+      margin: 15px 0 10px;
+      color: var(--text);
+      font-weight: 600;
+    }
+    
     .game-card {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
       padding: 18px;
       margin-bottom: 15px;
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: var(--shadow);
       transition: var(--transition);
     }
@@ -132,31 +147,35 @@
       transform: scale(0.98);
     }
     
-    .game-card h2 {
+    .game-card h3 {
       margin: 0;
-      font-size: 20px;
+      font-size: 1.1rem;
       font-weight: 600;
     }
     
     .game-card p {
       margin: 8px 0 0;
-      font-size: 14px;
+      font-size: 0.9rem;
       opacity: 0.9;
     }
     
-    .promo-button {
-      background: linear-gradient(135deg, var(--secondary), #7474ff);
+    .promo-banner {
+      background: linear-gradient(135deg, var(--secondary), #5dade2);
       color: white;
       padding: 15px;
-      border-radius: 16px;
+      border-radius: 14px;
       text-align: center;
       margin: 20px 15px;
       font-weight: 600;
       box-shadow: var(--shadow);
       transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
     
-    .promo-button:active {
+    .promo-banner:active {
       transform: scale(0.98);
     }
     
@@ -166,36 +185,36 @@
       left: 0;
       right: 0;
       background: var(--white);
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid #ddd;
       display: flex;
       justify-content: space-around;
       padding: 12px 0;
-      z-index: 10;
+      z-index: 100;
     }
     
-    .bottom-nav button {
+    .nav-btn {
       background: none;
       border: none;
-      font-size: 12px;
+      font-size: 0.7rem;
       text-align: center;
       color: var(--text-light);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       padding: 5px;
     }
     
-    .bottom-nav button i {
-      font-size: 20px;
+    .nav-icon {
+      font-size: 1.3rem;
     }
     
-    .bottom-nav .active {
+    .nav-btn.active {
       color: var(--primary);
     }
     
-    /* Loading animation */
-    .loader {
+    /* Loading overlay */
+    .loader-overlay {
       display: none;
       position: fixed;
       top: 0;
@@ -203,23 +222,24 @@
       right: 0;
       bottom: 0;
       background: rgba(0,0,0,0.5);
-      z-index: 100;
+      z-index: 1000;
       justify-content: center;
       align-items: center;
     }
     
     .loader-content {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 14px;
       text-align: center;
+      max-width: 80%;
     }
     
     .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid var(--primary);
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid var(--primary);
       border-radius: 50%;
       animation: spin 1s linear infinite;
       margin: 0 auto 15px;
@@ -230,58 +250,97 @@
       100% { transform: rotate(360deg); }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <header>
-    <img src="https://i.imgur.com/b6HgM6Z.png" alt="OK.Win Logo" />
-    <div><i class="fas fa-bell"></i></div>
+    <img src="https://via.placeholder.com/100x40/ff6b6b/ffffff?text=OK.Win" alt="OK.Win Logo" class="logo">
+    <i class="fas fa-bell notification-icon"></i>
   </header>
 
   <div class="alert-bar">
-    <span>All players must bind their bank data.</span>
-    <button onclick="showDetails()">Detail</button>
+    <span>All players must verify their bank details</span>
+    <button class="alert-btn" onclick="showDetails()">Details</button>
   </div>
 
-  
+  <div class="sidebar">
+    <div class="sidebar-grid">
+      <button class="sidebar-btn">
+        <img src="https://via.placeholder.com/36/3498db/ffffff?text=L" alt="Lottery" class="sidebar-icon">
+        Lottery
+      </button>
+      <button class="sidebar-btn">
+        <img src="https://via.placeholder.com/36/e74c3c/ffffff?text=M" alt="Mini Games" class="sidebar-icon">
+        Mini Games
+      </button>
+      <button class="sidebar-btn">
+        <img src="https://via.placeholder.com/36/2ecc71/ffffff?text=P" alt="Popular" class="sidebar-icon">
+        Popular
+      </button>
+      <button class="sidebar-btn">
+        <img src="https://via.placeholder.com/36/f39c12/ffffff?text=S" alt="Slots" class="sidebar-icon">
+        Slots
+      </button>
+    </div>
+  </div>
+
   <div class="games-container">
+    <h2 class="section-title">Featured Games</h2>
+    
     <div class="game-card" onclick="playGame('Win Go')">
-      <h2>Win Go</h2>
+      <h3>Win Go</h3>
       <p>Guess Number: Green/Red/Violet to win</p>
     </div>
 
-    <div class="game-card" style="background: linear-gradient(135deg, #2ed573, #7bed9f);" onclick="playGame('K3')">
-      <h2>K3</h2>
+    <div class="game-card" style="background: linear-gradient(135deg, var(--success), #58d68d);" onclick="playGame('K3')">
+      <h3>K3</h3>
       <p>Guess Number: Big/Small/Odd/Even</p>
     </div>
 
-    <div class="game-card" style="background: linear-gradient(135deg, #5352ed, #7474ff);" onclick="playGame('5D')">
-      <h2>5D</h2>
+    <div class="game-card" style="background: linear-gradient(135deg, var(--secondary), #5dade2);" onclick="playGame('5D')">
+      <h3>5D</h3>
       <p>Guess Number: Big/Small/Odd/Even</p>
     </div>
   </div>
 
-  <div class="promo-button" onclick="addToDesktop()">
-    <i class="fas fa-plus-circle"></i> Add to Desktop
+  <div class="promo-banner" onclick="addToDesktop()">
+    <i class="fas fa-plus-circle"></i>
+    <span>Add to Home Screen for Quick Access</span>
   </div>
 
   <div class="bottom-nav">
-    <button class="active" onclick="navigate('Home')"><i class="fas fa-home"></i> Home</button>
-    <button onclick="navigate('Activity')"><i class="fas fa-calendar-alt"></i> Activity</button>
-    <button onclick="navigate('Promotion')"><i class="fas fa-gift"></i> Promo</button>
-    <button onclick="navigate('Wallet')"><i class="fas fa-wallet"></i> Wallet</button>
-    <button onclick="navigate('Account')"><i class="fas fa-user"></i> Account</button>
+    <button class="nav-btn active" onclick="navigate('home')">
+      <i class="fas fa-home nav-icon"></i>
+      <span>Home</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('activity')">
+      <i class="fas fa-chart-line nav-icon"></i>
+      <span>Activity</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('promo')">
+      <i class="fas fa-gift nav-icon"></i>
+      <span>Promo</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('wallet')">
+      <i class="fas fa-wallet nav-icon"></i>
+      <span>Wallet</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('account')">
+      <i class="fas fa-user nav-icon"></i>
+      <span>Account</span>
+    </button>
   </div>
 
-  <div class="loader" id="loader">
+  <div class="loader-overlay" id="loader">
     <div class="loader-content">
       <div class="spinner"></div>
-      <p>Loading...</p>
+      <p>Please wait...</p>
     </div>
   </div>
 
   <script>
+    // Show loading overlay
     function showLoader() {
       document.getElementById('loader').style.display = 'flex';
       setTimeout(() => {
@@ -289,170 +348,66 @@
       }, 1500);
     }
 
+    // Alert bar details
     function showDetails() {
       showLoader();
       setTimeout(() => {
-        alert("For security and withdrawal purposes, please bind your real bank account in the Account section.");
+        alert("To enable withdrawals, please verify your bank account in the Account section. This helps prevent fraud and ensures secure transactions.");
       }, 300);
     }
 
+    // Game launch function
     function playGame(name) {
       showLoader();
       setTimeout(() => {
-        alert(Now launching ${name}. Good luck!);
+        const message = {
+          'Win Go': 'Launching Win Go - Good luck predicting the colors!',
+          'K3': 'Opening K3 - May the odds be in your favor!',
+          '5D': 'Starting 5D - Pick your lucky numbers!'
+        }[name] || Now launching ${name};
+        
+        alert(message);
       }, 1000);
     }
 
+    // Add to home screen prompt
     function addToDesktop() {
       showLoader();
       setTimeout(() => {
-        alert("Check your browser menu for 'Add to Home Screen' option");
+        if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+          alert("For quick access:\n1. Tap the share icon\n2. Select 'Add to Home Screen'");
+        } else {
+          alert("For desktop browsers:\n1. Click the menu (⋮) in Chrome\n2. Select 'Create Shortcut'");
+        }
       }, 800);
     }
 
-    function navigate(section) {
-      showLoader
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leaderboard</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    body {
-      margin: 0;
-      background: #f4f6fc;
-      padding: 20px 10px 80px;
-    }
-    .leaderboard {
-      text-align: center;
-    }
-    .top-three {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      margin-bottom: 20px;
-      gap: 10px;
-    }
-    .rank-box {
-      background: linear-gradient(to top, #ff6a6a, #ffa07a);
-      padding: 10px;
-      border-radius: 20px;
-      color: white;
-      flex: 1;
-      max-width: 120px;
-      position: relative;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-    .rank-box.no1 {
-      background: linear-gradient(to top, #ff4d4d, #ff9999);
-      height: 180px;
-    }
-    .rank-box.no2 {
-      background: linear-gradient(to top, #a0aaff, #d0d8ff);
-      height: 150px;
-    }
-    .rank-box.no3 {
-      background: linear-gradient(to top, #fca13a, #fdd79a);
-      height: 140px;
-    }
-    .rank-box img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 10px;
-    }
-    .crown {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35px;
-    }
-    .rank {
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .name {
-      margin: 5px 0;
-    }
-    .amount {
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .list-item {
-      display: flex;
-      align-items: center;
-      background: white;
-      margin: 8px 0;
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-    .list-item img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-    .list-rank {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    .list-name {
-      flex: 1;
-    }
-    .list-amount {
-      color: #fff;
-      background: linear-gradient(to right, #ff6a6a, #ff9c9c);
-      border-radius: 20px;
-      padding: 5px 10px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-
-<div class="leaderboard">
-
-  <div class="top-three">
-    <div class="rank-box no2">
-      <img src="https://i.imgur.com/jNNT4LE.png" />
+    // Navigation function
+    function navigate(page) {
+      if (page === 'home') return;
       
-      <div class="rank">NO2</div>
-      <div class="name">Mem***F09</div>
-      <div class="amount">₹245,759,500.00</div>
-    </div>
-    <div class="rank-box no1">
-      <img src="https://i.imgur.com/jNNT4LE.png" />
-            <div class="rank">NO1</div>
-      <div class="name">AZG***1M</div>
-      <div class="amount">₹352,729,440.00</div>
-    </div>
-    <div class="rank-box no3">
-      <img src="https://i.imgur.com/lKJiT77.png" />
-      
-      <div class="rank">NO3</div>
-      <div class="name"></div>
-      <div class="amount">₹104,817,370.00</div>
-    </div>
-  </div>
+      showLoader();
+      setTimeout(() => {
+        const pageTitles = {
+          'activity': 'Activity Center',
+          'promo': 'Promotions',
+          'wallet': 'My Wallet',
+          'account': 'Account Settings'
+        };
+        
+        alert(Redirecting to ${pageTitles[page] || page}...);
+        // In a real app, this would change the view
+      }, 500);
+    }
 
-  <!-- List Items -->
-  <div class="list-item"><div class="list-rank">4</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***FGU</div><div class="list-amount">₹46,195,338.00</div></div>
-  <div class="list-item"><div class="list-rank">5</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***ZEN</div><div class="list-amount">₹39,392,080.00</div></div>
-  <div class="list-item"><div class="list-rank">6</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***SUN</div><div class="list-amount">₹26,304,046.72</div></div>
-  <div class="list-item"><div class="list-rank">7</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***EET</div><div class="list-amount">₹2,395,316.00</div></div>
-  <div class="list-item"><div class="list-rank">8</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***JNP</div><div class="list-amount">₹1,729,575.00</div></div>
-  <div class="list-item"><div class="list-rank">9</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***BTX</div><div class="list-amount">₹1,619,038.00</div></div>
-  <div class="list-item"><div class="list-rank">10</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Nak***aXD</div><div class="list-amount">₹1,176,000.00</div></div>
-
-</div>
+    // Bottom nav active state
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
