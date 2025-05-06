@@ -313,3 +313,198 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wingo Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ff6a6a, #ffe1e1);
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 10px;
+      background: white;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .wallet, .buttons, .timer, .numbers, .colors, .bets, .result, .history {
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .green { background: green; color: white; }
+    .red { background: red; color: white; }
+    .violet { background: violet; color: white; }
+    .big { background: orange; }
+    .small { background: cornflowerblue; }
+    .numbers button { background: #eee; }
+    .active { border: 2px solid #000; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="wallet">
+    <h3>Wallet Balance: ₹<span id="wallet">100</span></h3>
+    <button class="green" onclick="deposit(50)">Deposit ₹50</button>
+    <button class="red" onclick="withdraw(50)">Withdraw ₹50</button>
+  </div>
+
+  <div class="buttons">
+    <button onclick="selectGame(60)">WinGo 1Min</button>
+    <button onclick="selectGame(180)">WinGo 3Min</button>
+    <button onclick="selectGame(300)">WinGo 5Min</button>
+  </div>
+
+  <div class="timer">
+    <h3>Time Left: <span id="timer">--</span></h3>
+  </div>
+
+  <div class="colors">
+    <button class="green" onclick="selectColor('green')">Green</button>
+    <button class="violet" onclick="selectColor('violet')">Violet</button>
+    <button class="red" onclick="selectColor('red')">Red</button>
+  </div>
+
+  <div class="numbers">
+    <h4>Select Number</h4>
+    <div id="numberButtons"></div>
+  </div>
+
+  <div class="bets">
+    <h4>Bet Amount</h4>
+    <button onclick="setBet(10)">₹10</button>
+    <button onclick="setBet(20)">₹20</button>
+    <button onclick="setBet(50)">₹50</button>
+  </div>
+
+  <div class="result">
+    <h4 id="resultMsg">Place your bet and wait...</h4>
+  </div>
+
+  <div class="history">
+    <h4>Game History</h4>
+    <ul id="historyList"></ul>
+  </div>
+</div>
+
+<script>
+let wallet = 100;
+let selectedColor = null;
+let selectedNumber = null;
+let betAmount = 0;
+let gameTime = 60;
+let timer;
+let countdown = gameTime;
+
+document.getElementById("wallet").innerText = wallet;
+
+const numberButtons = document.getElementById("numberButtons");
+for (let i = 0; i <= 9; i++) {
+  const btn = document.createElement("button");
+  btn.innerText = i;
+  btn.onclick = () => selectNumber(i);
+  numberButtons.appendChild(btn);
+}
+
+function updateWallet() {
+  document.getElementById("wallet").innerText = wallet;
+}
+
+function deposit(amount) {
+  wallet += amount;
+  updateWallet();
+}
+
+function withdraw(amount) {
+  if (wallet >= amount) {
+    wallet -= amount;
+    updateWallet();
+  }
+}
+
+function setBet(amount) {
+  betAmount = amount;
+  alert("Bet set to ₹" + amount);
+}
+
+function selectColor(color) {
+  selectedColor = color;
+  alert("Color selected: " + color);
+}
+
+function selectNumber(num) {
+  selectedNumber = num;
+  alert("Number selected: " + num);
+}
+
+function selectGame(seconds) {
+  gameTime = seconds;
+  countdown = gameTime;
+  clearInterval(timer);
+  timer = setInterval(() => {
+    countdown--;
+    document.getElementById("timer").innerText = countdown + "s";
+    if (countdown <= 0) {
+      clearInterval(timer);
+      playGame();
+    }
+  }, 1000);
+}
+
+function playGame() {
+  const winningNumber = Math.floor(Math.random() * 10);
+  let winningColor = "green";
+  if (winningNumber === 0 || winningNumber === 5) {
+    winningColor = "violet";
+  } else if (winningNumber % 2 === 0) {
+    winningColor = "red";
+  }
+
+  let win = false;
+  let winAmount = 0;
+
+  if (selectedColor === winningColor) {
+    winAmount += betAmount * 2;
+    win = true;
+  }
+  if (selectedNumber == winningNumber) {
+    winAmount += betAmount * 9;
+    win = true;
+  }
+
+  if (win) {
+    wallet += winAmount;
+    document.getElementById("resultMsg").innerText = You WON! Number: ${winningNumber}, Color: ${winningColor}. +₹${winAmount};
+  } else {
+    wallet -= betAmount;
+    document.getElementById("resultMsg").innerText = You LOST! Number: ${winningNumber}, Color: ${winningColor}. -₹${betAmount};
+  }
+
+  updateWallet();
+  saveToHistory(winningNumber, winningColor);
+}
+
+function saveToHistory(num, color) {
+  const li = document.createElement("li");
+  li.innerText = Number: ${num}, Color: ${color};
+  document.getElementById("historyList").prepend(li);
+}
+</script>
+
+</body>
+</html>
