@@ -1,124 +1,242 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lucky Win Style Mobile Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Lucky.Win Style Mobile Interface</title>
   <style>
+    :root {
+      --primary: #ff4757;
+      --primary-light: #ff6b81;
+      --secondary: #5352ed;
+      --dark: #2f3542;
+      --light: #f1f2f6;
+      --success: #2ed573;
+      --warning: #ffa502;
+      --danger: #ff4757;
+      --text: #333;
+      --text-light: #666;
+      --white: #fff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+    
     * {
       box-sizing: border-box;
-      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
+    
     body {
       margin: 0;
-      background: #fefefe;
-      color: #333;
+      padding-bottom: 70px;
+      background: #f8f9fa;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.5;
     }
+    
     header {
-      padding: 10px;
-      background: #fff;
+      padding: 15px;
+      background: var(--white);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+    
     header img {
-      width: 80px;
-      border-radius: 10px;
+      width: 100px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: contain;
     }
+    
     .alert-bar {
-      background: #fff;
-      padding: 10px;
+      background: var(--warning);
+      color: var(--white);
+      padding: 12px 15px;
       font-size: 14px;
       display: flex;
       align-items: center;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
+      margin: 5px 0;
     }
+    
     .alert-bar button {
-      background: #ff6a6a;
+      background: rgba(255,255,255,0.2);
       color: white;
       border: none;
       border-radius: 20px;
-      padding: 5px 10px;
+      padding: 6px 12px;
       margin-left: auto;
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
     }
+    
+    .alert-bar button:active {
+      transform: scale(0.95);
+    }
+    
     .sidebar {
       display: flex;
       flex-direction: column;
-      padding: 10px;
-      gap: 10px;
+      padding: 15px;
+      gap: 12px;
     }
+    
     .sidebar button {
       display: flex;
       align-items: center;
-      background: #fff;
+      background: var(--white);
       border: none;
-      border-radius: 10px;
-      padding: 10px;
+      border-radius: 12px;
+      padding: 12px 15px;
       font-size: 16px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-weight: 500;
+      box-shadow: var(--shadow);
       cursor: pointer;
+      transition: var(--transition);
     }
+    
+    .sidebar button:active {
+      transform: scale(0.98);
+    }
+    
     .sidebar img {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
+      width: 36px;
+      height: 36px;
+      margin-right: 12px;
+      object-fit: contain;
     }
+    
+    .games-container {
+      padding: 0 15px;
+    }
+    
     .game-card {
-      background: linear-gradient(to right, #ff6a6a, #ff9c9c);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
-      padding: 15px;
-      margin: 10px;
-      border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 18px;
+      margin-bottom: 15px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
     }
+    
+    .game-card:active {
+      transform: scale(0.98);
+    }
+    
     .game-card h2 {
       margin: 0;
       font-size: 20px;
+      font-weight: 600;
     }
+    
     .game-card p {
-      margin: 5px 0 0;
+      margin: 8px 0 0;
+      font-size: 14px;
+      opacity: 0.9;
     }
+    
+    .promo-button {
+      background: linear-gradient(135deg, var(--secondary), #7474ff);
+      color: white;
+      padding: 15px;
+      border-radius: 16px;
+      text-align: center;
+      margin: 20px 15px;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .promo-button:active {
+      transform: scale(0.98);
+    }
+    
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: #fff;
-      border-top: 1px solid #ccc;
+      background: var(--white);
+      border-top: 1px solid #e0e0e0;
       display: flex;
       justify-content: space-around;
-      padding: 10px 0;
+      padding: 12px 0;
+      z-index: 10;
     }
+    
     .bottom-nav button {
       background: none;
       border: none;
       font-size: 12px;
       text-align: center;
-      color: #666;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 5px;
     }
+    
+    .bottom-nav button i {
+      font-size: 20px;
+    }
+    
     .bottom-nav .active {
-      color: #ff6a6a;
+      color: var(--primary);
     }
-    .promo-button {
-      background: red;
-      color: white;
-      padding: 10px;
-      border-radius: 20px;
+    
+    /* Loading animation */
+    .loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .loader-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
-      margin: 10px;
-      font-weight: bold;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
   <header>
-    <img src="p" alt="Banner" />
-    <div></div>
+    <img src="https://i.imgur.com/b6HgM6Z.png" alt="OK.Win Logo" />
+    <div><i class="fas fa-bell"></i></div>
   </header>
 
   <div class="alert-bar">
@@ -126,195 +244,78 @@
     <button onclick="showDetails()">Detail</button>
   </div>
 
-   <div class="game-card" onclick="playGame('Win Go')">
-    <h2>Win Go</h2>
-    <p>Guess Number: Green/Red/Violet to win</p>
+  <div class="sidebar">
+    <button><img src="https://i.imgur.com/xgTZC3C.png" /> Lottery</button>
+    <button><img src="https://i.imgur.com/LuNhslk.png" /> Mini games</button>
+    <button><img src="https://i.imgur.com/tDbB19x.png" /> Popular</button>
+    <button><img src="https://i.imgur.com/5STo8Dj.png" /> Slots</button>
+    <button><img src="https://i.imgur.com/TkGvXDL.png" /> Fishing</button>
   </div>
 
-  <div class="game-card" onclick="playGame('K3')">
-    <h2>K3</h2>
-    <p>Guess Number: Big/Small/Odd/Even</p>
-  </div>
+  <div class="games-container">
+    <div class="game-card" onclick="playGame('Win Go')">
+      <h2>Win Go</h2>
+      <p>Guess Number: Green/Red/Violet to win</p>
+    </div>
 
-  <div class="game-card" onclick="playGame('5D')">
-    <h2>5D</h2>
-    <p>Guess Number: Big/Small/Odd/Even</p>
+    <div class="game-card" style="background: linear-gradient(135deg, #2ed573, #7bed9f);" onclick="playGame('K3')">
+      <h2>K3</h2>
+      <p>Guess Number: Big/Small/Odd/Even</p>
+    </div>
+
+    <div class="game-card" style="background: linear-gradient(135deg, #5352ed, #7474ff);" onclick="playGame('5D')">
+      <h2>5D</h2>
+      <p>Guess Number: Big/Small/Odd/Even</p>
+    </div>
   </div>
 
   <div class="promo-button" onclick="addToDesktop()">
-    Add to Desktop
+    <i class="fas fa-plus-circle"></i> Add to Desktop
   </div>
 
   <div class="bottom-nav">
-    <button class="active" onclick="navigate('Home')">Home</button>
-    <button onclick="navigate('Activity')">Activity</button>
-    <button onclick="navigate('Promotion')">Promotion</button>
-    <button onclick="navigate('Wallet')">Wallet</button>
-    <button onclick="navigate('Account')">Account</button>
+    <button class="active" onclick="navigate('Home')"><i class="fas fa-home"></i> Home</button>
+    <button onclick="navigate('Activity')"><i class="fas fa-calendar-alt"></i> Activity</button>
+    <button onclick="navigate('Promotion')"><i class="fas fa-gift"></i> Promo</button>
+    <button onclick="navigate('Wallet')"><i class="fas fa-wallet"></i> Wallet</button>
+    <button onclick="navigate('Account')"><i class="fas fa-user"></i> Account</button>
+  </div>
+
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
   </div>
 
   <script>
+    function showLoader() {
+      document.getElementById('loader').style.display = 'flex';
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 1500);
+    }
+
     function showDetails() {
-      alert("Bind your real bank data to continue.");
+      showLoader();
+      setTimeout(() => {
+        alert("For security and withdrawal purposes, please bind your real bank account in the Account section.");
+      }, 300);
     }
 
     function playGame(name) {
-   alert("Launching game: " + name);
-     
+      showLoader();
+      setTimeout(() => {
+        alert(Now launching ${name}. Good luck!);
+      }, 1000);
     }
 
     function addToDesktop() {
-      alert("Feature coming soon!");
+      showLoader();
+      setTimeout(() => {
+        alert("Check your browser menu for 'Add to Home Screen' option");
+      }, 800);
     }
 
     function navigate(section) {
-      alert("Navigating to " + section);
-    }
-  </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leaderboard</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    body {
-      margin: 0;
-      background: #f4f6fc;
-      padding: 20px 10px 80px;
-    }
-    .leaderboard {
-      text-align: center;
-    }
-    .top-three {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      margin-bottom: 20px;
-      gap: 10px;
-    }
-    .rank-box {
-      background: linear-gradient(to top, #ff6a6a, #ffa07a);
-      padding: 10px;
-      border-radius: 20px;
-      color: white;
-      flex: 1;
-      max-width: 120px;
-      position: relative;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-    .rank-box.no1 {
-      background: linear-gradient(to top, #ff4d4d, #ff9999);
-      height: 180px;
-    }
-    .rank-box.no2 {
-      background: linear-gradient(to top, #a0aaff, #d0d8ff);
-      height: 150px;
-    }
-    .rank-box.no3 {
-      background: linear-gradient(to top, #fca13a, #fdd79a);
-      height: 140px;
-    }
-    .rank-box img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 10px;
-    }
-    .crown {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 35px;
-    }
-    .rank {
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .name {
-      margin: 5px 0;
-    }
-    .amount {
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .list-item {
-      display: flex;
-      align-items: center;
-      background: white;
-      margin: 8px 0;
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-    .list-item img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-    .list-rank {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    .list-name {
-      flex: 1;
-    }
-    .list-amount {
-      color: #fff;
-      background: linear-gradient(to right, #ff6a6a, #ff9c9c);
-      border-radius: 20px;
-      padding: 5px 10px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-
-<div class="leaderboard">
-
-  <div class="top-three">
-    <div class="rank-box no2">
-      <img src="https://i.imgur.com/jNNT4LE.png" />
-     
-      <div class="rank">NO2</div>
-      <div class="name">Mem***F09</div>
-      <div class="amount">₹245,759,500.00</div>
-    </div>
-    <div class="rank-box no1">
-      <img src="https://i.imgur.com/jNNT4LE.png" />
-      
-      <div class="rank">NO1</div>
-      <div class="name">AZG***1M</div>
-      <div class="amount">₹352,729,440.00</div>
-    </div>
-    <div class="rank-box no3">
-      <img src="https://i.imgur.com/lKJiT77.png" />
-           <div class="rank">NO3</div>
-      <div class="name"></div>
-      <div class="amount">₹104,817,370.00</div>
-    </div>
-  </div>
-
-  <!-- List Items -->
-  <div class="list-item"><div class="list-rank">4</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***FGU</div><div class="list-amount">₹46,195,338.00</div></div>
-  <div class="list-item"><div class="list-rank">5</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***ZEN</div><div class="list-amount">₹39,392,080.00</div></div>
-  <div class="list-item"><div class="list-rank">6</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***SUN</div><div class="list-amount">₹26,304,046.72</div></div>
-  <div class="list-item"><div class="list-rank">7</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***EET</div><div class="list-amount">₹2,395,316.00</div></div>
-  <div class="list-item"><div class="list-rank">8</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***JNP</div><div class="list-amount">₹1,729,575.00</div></div>
-  <div class="list-item"><div class="list-rank">9</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***BTX</div><div class="list-amount">₹1,619,038.00</div></div>
-  <div class="list-item"><div class="list-rank">10</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Nak***aXD</div><div class="list-amount">₹1,176,000.00</div></div>
-
-</div>
-
-</body>
-</html>
+      showLoader
