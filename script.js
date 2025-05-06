@@ -14,7 +14,7 @@ document.getElementById("openWingo").addEventListener("click", function () {
 });
 
 // Simple countdown
-let countdown = 30;
+let countdown = 60;
 const timer = document.getElementById("timer");
 setInterval(() => {
   if (countdown > 0) {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Countdown logic
-  let countdown = 30;
+  let countdown = 60;
   const timer = document.getElementById("timer");
   setInterval(() => {
     if (countdown > 0) {
