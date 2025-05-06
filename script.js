@@ -1,39 +1,12 @@
-function showSection(sectionName) {
-  alert(You selected the ${sectionName} category.);
+function navigate(section) {
+  showLoader();
+  setTimeout(() => {
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("activityPage").style.display = "none";
+
+    if (section === "Home") document.getElementById("homePage").style.display = "block";
+    if (section === "Activity") document.getElementById("activityPage").style.display = "block";
+
+    // add other sections as needed
+  }, 500);
 }
-
-function playGame(gameName) {
-  alert(Launching ${gameName}...);
-}
-
-function navigate(pageName) {
-  alert(Navigating to ${pageName} page.);
-}
-document.getElementById("openWingo").addEventListener("click", function () {
-  document.getElementById("wingoGame").classList.remove("hidden");
-});
-
-// Simple countdown
-let countdown = 60;
-const timer = document.getElementById("timer");
-setInterval(() => {
-  if (countdown > 0) {
-    countdown--;
-    timer.innerText = countdown;
-  }
-}, 1000);
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("openWingo").addEventListener("click", function () {
-    document.getElementById("wingoGame").classList.remove("hidden");
-  });
-
-  // Countdown logic
-  let countdown = 60;
-  const timer = document.getElementById("timer");
-  setInterval(() => {
-    if (countdown > 0) {
-      countdown--;
-      timer.innerText = countdown;
-    }
-  }, 1000);
-});
