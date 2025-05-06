@@ -33,5 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("wingoGame").classList.remove("hidden");
     });
   }
-});  }, 500);
+}); 
+function showSection(sectionName) {
+  alert(You selected the ${sectionName} category.);
+}
+
+function playGame(gameName) {
+  alert(Launching ${gameName}...);
+}
+
+function navigate(pageName) {
+  alert(Navigating to ${pageName} page.);
+} }, 500);
 }
