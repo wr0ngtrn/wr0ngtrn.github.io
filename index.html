@@ -1,139 +1,315 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LuckyWin UI Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucky Win Style Mobile Interface</title>
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
       background: #fefefe;
+      color: #333;
     }
-    .header-banner {
-      background: linear-gradient(to right, #ffeb3b, #ffc107);
-      padding: 15px;
-      text-align: center;
+    header {
+      padding: 10px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .header-banner img {
-      max-width: 100%;
-      border-radius: 12px;
+    header img {
+      width: 80px;
+      border-radius: 10px;
     }
     .alert-bar {
-      background: #fff3cd;
-      color: #856404;
+      background: #fff;
       padding: 10px;
       font-size: 14px;
-      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
     }
-    .game-section {
-      padding: 10px;
-    }
-    .game-card {
-      background: linear-gradient(to right, #ff7f7f, #ffb6b6);
-      border-radius: 10px;
-      margin: 10px 0;
-      padding: 10px 15px;
+    .alert-bar button {
+      background: #ff6a6a;
       color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .game-card h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-    .game-card p {
-      margin: 5px 0 0;
-      font-size: 14px;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 10px;
+      margin-left: auto;
     }
     .sidebar {
-      position: fixed;
-      top: 100px;
-      left: 0;
-      width: 60px;
       display: flex;
       flex-direction: column;
+      padding: 10px;
+      gap: 10px;
+    }
+    .sidebar button {
+      display: flex;
       align-items: center;
-      gap: 15px;
-      padding: 10px 0;
+      background: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
     .sidebar img {
       width: 40px;
       height: 40px;
+      margin-right: 10px;
+    }
+    .game-card {
+      background: linear-gradient(to right, #ff6a6a, #ff9c9c);
+      color: white;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .game-card h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .game-card p {
+      margin: 5px 0 0;
     }
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid #ccc;
       display: flex;
       justify-content: space-around;
-      background: white;
-      box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
       padding: 10px 0;
     }
-    .bottom-nav div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .bottom-nav button {
+      background: none;
+      border: none;
       font-size: 12px;
-      color: #555;
+      text-align: center;
+      color: #666;
     }
-    .bottom-nav img {
-      width: 24px;
-      height: 24px;
+    .bottom-nav .active {
+      color: #ff6a6a;
     }
-    .promo-btn {
+    .promo-button {
       background: red;
       color: white;
-      padding: 5px 10px;
+      padding: 10px;
       border-radius: 20px;
-      font-size: 12px;
-      margin-top: 10px;
+      text-align: center;
+      margin: 10px;
+      font-weight: bold;
     }
-</style>
+  </style>
 </head>
 <body>
-  <div class="header-banner">
-    <img src="https://via.placeholder.com/350x100.png?text=Invite+Members+Bonus" alt="Banner" />
-  </div>  <div class="alert-bar">
-    All players registered on this platform must bind their bank data. If a non-personal ba
+
+  <header>
+    <img src="https://i.imgur.com/b6HgM6Z.png" alt="Banner" />
+    <div></div>
+  </header>
+
+  <div class="alert-bar">
+    <span>All players must bind their bank data.</span>
+    <button onclick="showDetails()">Detail</button>
+  </div>
+
+    <div class="game-card" onclick="playGame('Win Go')">
+    <h2>Win Go</h2>
+    <p>Guess Number: Green/Red/Violet to win</p>
+  </div>
+
+  <div class="game-card" onclick="playGame('K3')">
+    <h2>K3</h2>
+    <p>Guess Number: Big/Small/Odd/Even</p>
+  </div>
+
+  <div class="game-card" onclick="playGame('5D')">
+    <h2>5D</h2>
+    <p>Guess Number: Big/Small/Odd/Even</p>
+  </div>
+
+  <div class="promo-button" onclick="addToDesktop()">
+    Add to Desktop
+  </div>
+
+  <div class="bottom-nav">
+    <button class="active" onclick="navigate('Home')">Home</button>
+    <button onclick="navigate('Activity')">Activity</button>
+    <button onclick="navigate('Promotion')">Promotion</button>
+    <button onclick="navigate('Wallet')">Wallet</button>
+    <button onclick="navigate('Account')">Account</button>
+  </div>
+
+  <script>
+    function showDetails() {
+      alert("Bind your real bank data to continue.");
+    }
+
+    function playGame(name) {
+      alert("Launching game: " + name);
+    }
+
+    function addToDesktop() {
+      alert("Feature coming soon!");
+    }
+
+    function navigate(section) {
+      alert("Navigating to " + section);
+    }
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      margin: 0;
+      background: #f4f6fc;
+      padding: 20px 10px 80px;
+    }
+    .leaderboard {
+      text-align: center;
+    }
+    .top-three {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .rank-box {
+      background: linear-gradient(to top, #ff6a6a, #ffa07a);
+      padding: 10px;
+      border-radius: 20px;
+      color: white;
+      flex: 1;
+      max-width: 120px;
+      position: relative;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .rank-box.no1 {
+      background: linear-gradient(to top, #ff4d4d, #ff9999);
+      height: 180px;
+    }
+    .rank-box.no2 {
+      background: linear-gradient(to top, #a0aaff, #d0d8ff);
+      height: 150px;
+    }
+    .rank-box.no3 {
+      background: linear-gradient(to top, #fca13a, #fdd79a);
+      height: 140px;
+    }
+    .rank-box img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-bottom: 10px;
+    }
+    .crown {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35px;
+    }
+    .rank {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .name {
+      margin: 5px 0;
+    }
+    .amount {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .list-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      margin: 8px 0;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .list-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .list-rank {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .list-name {
+      flex: 1;
+    }
+    .list-amount {
+      color: #fff;
+      background: linear-gradient(to right, #ff6a6a, #ff9c9c);
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="leaderboard">
+
+  <div class="top-three">
+    <div class="rank-box no2">
+      <img src="https://i.imgur.com/jNNT4LE.png" />
  
-  </div>  <div class="game-section">
-    <div class="game-card">
-      <h3>Win Go</h3>
-      <p>Guess Number - Green/Red/Violet to win</p>
+      <div class="rank">NO2</div>
+      <div class="name">Mem***F09</div>
+      <div class="amount">₹245,759,500.00</div>
     </div>
-    <div class="game-card">
-      <h3>K3</h3>
-      <p>Guess Number - Big/Small/Odd/Even</p>
+    <div class="rank-box no1">
+      <img src="https://i.imgur.com/jNNT4LE.png" />
+          <div class="rank">NO1</div>
+      <div class="name">AZG***1M</div>
+      <div class="amount">₹352,729,440.00</div>
     </div>
-    <div class="game-card">
-      <h3>5D</h3>
-      <p>Guess Number - Big/Small/Odd/Even</p>
+    <div class="rank-box no3">
+      <img src="https://i.imgur.com/lKJiT77.png" />
+         <div class="rank">NO3</div>
+      <div class="name"></div>
+      <div class="amount">₹104,817,370.00</div>
     </div>
-    <div class="game-card">
-      <h3>Add to Desktop</h3>
-      <p class="promo-btn">0K Win</p>
-    </div>
-  </div>  <div class="bottom-nav">
-    <div>
-      <img src="https://via.placeholder.com/24.png?text=H" alt="Home" />
-      Home
-    </div>
-    <div>
-      <img src="https://via.placeholder.com/24.png?text=A" alt="Activity" />
-      Activity
-    </div>
-    <div>
-      <img src="https://via.placeholder.com/24.png?text=P" alt="Promotion" />
-      Promotion
-    </div>
-    <div>
-      <img src="https://via.placeholder.com/24.png?text=W" alt="Wallet" />
-      Wallet
-    </div>
-    <div>
-      <img src="https://via.placeholder.com/24.png?text=U" alt="Account" />
-      Account
-    </div>
-  </div></body>
+  </div>
+
+  <!-- List Items -->
+  <div class="list-item"><div class="list-rank">4</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***FGU</div><div class="list-amount">₹46,195,338.00</div></div>
+  <div class="list-item"><div class="list-rank">5</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***ZEN</div><div class="list-amount">₹39,392,080.00</div></div>
+  <div class="list-item"><div class="list-rank">6</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***SUN</div><div class="list-amount">₹26,304,046.72</div></div>
+  <div class="list-item"><div class="list-rank">7</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***EET</div><div class="list-amount">₹2,395,316.00</div></div>
+  <div class="list-item"><div class="list-rank">8</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***JNP</div><div class="list-amount">₹1,729,575.00</div></div>
+  <div class="list-item"><div class="list-rank">9</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Mem***BTX</div><div class="list-amount">₹1,619,038.00</div></div>
+  <div class="list-item"><div class="list-rank">10</div><img src="https://i.imgur.com/jNNT4LE.png"/><div class="list-name">Nak***aXD</div><div class="list-amount">₹1,176,000.00</div></div>
+
+</div>
+
+</body>
 </html>
